@@ -38,6 +38,9 @@ export async function createInvoice(prevState: State, formData: FormData) {
     status: formData.get('status'),
   });
 
+  console.log('Waiting 3 seconds');
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
     return {
